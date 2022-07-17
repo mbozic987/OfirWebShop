@@ -18,7 +18,7 @@ class ProductSeeder extends Seeder
             DB::table('products')->insert([
                 'name' => 'Name of product No. ' . $i,
                 'description' => 'Description of product No. ' . $i,
-                'image' => 'image' . $i,
+                'image' => 'image' . $i . '.jpg',
                 'price' => rand(499,1499) . '.' . rand(10,99),
             ]);
         }
