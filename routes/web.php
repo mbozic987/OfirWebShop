@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\DetailsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +21,9 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/catalog','CatalogContorller@index')->name('catalog');
-Route::get('/details/{product}','DetailsController@show')->name('details');
+Route::get('/catalog','CatalogController@index')->name('catalog.index');
+Route::get('/details/{product}','DetailsController@show')->name('details.show');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home.index');
