@@ -33,17 +33,19 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto pl-50">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/catalog') }}">Catalog</a>
-                        </li>
+                    <ul class="navbar-nav me-auto">
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
-                        
-                    
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/catalog') }}">Catalog</a>
+                        </li>
+
+                    {{--
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -74,7 +76,7 @@
                                     </form>
                                 </div>
                             </li>
-                        @endguest
+                        @endguest--}}
                     </ul>
                 </div>
             </div>
