@@ -30,21 +30,22 @@
                             <div class="row">
                                 <h4>Order product</h4>
                             </div>
-                            <div class="form-group row align-items-baseline">
+
+                            <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label">Product name</label>
 
                                 <input id="name"
                                        type="text"
-                                       class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
+                                       readonly class="form-control plaintext"
                                        name="name"
-                                       value="{{ $product->name }}"
-                                       autocomplete="{{ $product->name }}" autofocus>
+                                       value="{{ $product->name }}">
+                            <div/>
 
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
+                            <div class="form-group row">
+                                <input id="product_id"
+                                       type="hidden"
+                                       name="product_id"
+                                       value="{{ $product->id }}">
                             </div>
 
                             <div class="row">

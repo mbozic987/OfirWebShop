@@ -21,7 +21,10 @@ Route::get('/', function () {
 Route::get('/catalog','CatalogController@index')->name('catalog.index');
 Route::get('/details', 'DetailsController@index')->name('details.index');
 Route::get('/details/{product}','DetailsController@show')->name('details.show');
-Route::post('/orders','OrdersController@create')->name('orders.create');
+Route::post('/orders','OrdersController@store')->name('orders.store');
+
+Route::get('/notification/success', 'NotificationController@success')->name('notification.success');
+Route::get('/notification/error', 'NotificationController@error')->name('notification.error');
 
 Auth::routes();
 

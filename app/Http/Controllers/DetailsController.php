@@ -11,7 +11,7 @@ class DetailsController extends Controller
     {
         $product = Product::first();
 
-        return view('details.index', compact('product'));
+        return view('details.show', compact('product'));
     }
 
     public function show(Product $product)
