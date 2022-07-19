@@ -10,7 +10,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    public function orders()
+    public function orders(): HasMany
     {
         return $this->hasMany(Order::class);
     }

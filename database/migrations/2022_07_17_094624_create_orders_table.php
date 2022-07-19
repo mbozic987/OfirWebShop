@@ -20,7 +20,8 @@ class CreateOrdersTable extends Migration
             $table->string('client');
             $table->timestamps();
 
-            $table->index('product_id');
+            $table->foreign('product_id')->references('id')->on('products');
+
         });
     }
 
