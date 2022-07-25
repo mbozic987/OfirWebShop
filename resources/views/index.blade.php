@@ -23,7 +23,7 @@
        <div class="row">
            @foreach($bestsellers as $best)
                <div class="p-1 col-6 col-sm-4 col-lg-3" style="border-style: hidden">
-                   <a href="/details/{{ $best->product_id }}" class="text-decoration-none">
+                   <a href="/details/{{ $best->id }}" class="text-decoration-none">
                        <img src="/images/{{ $best->image }}" class="w-100 h-75">
                        <hr>
                        <p>
@@ -34,7 +34,7 @@
                    </a>
                        <p>Price: $ {{ $best->price }}</p>
 
-                       <p>Total sold: {{ $best->total }}</p>
+                       <p>Total sold: {{ $best->orders_sum_quantity }}</p>
                </div>
            @endforeach
        </div>
