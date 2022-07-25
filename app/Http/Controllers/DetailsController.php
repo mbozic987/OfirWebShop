@@ -7,15 +7,15 @@ use Illuminate\Http\Request;
 
 class DetailsController extends Controller
 {
-    public function index()
-    {
-        $product = Product::first();
-
-        return view('details.show', compact('product'));
-    }
-
     public function show(Product $product)
     {
-        return view('details.show', compact('product'));
+        if($product->id == null){
+            $product = Product::first();
+            return view('details.show', compact('product'));
+
+        }else{
+            return view('details.show', compact('product'));
+
+        }
     }
 }

@@ -19,8 +19,7 @@ Route::get('/home', 'HomeController@index')->name('home.index');
 
 Route::get('/catalog','CatalogController@index')->name('catalog.index');
 
-Route::get('/details', 'DetailsController@index')->name('details.index');
-Route::get('/details/{product}','DetailsController@show')->name('details.show');
+Route::get('/details/{product?}','DetailsController@show')->name('details.show');
 
 Route::post('/orders','OrdersController@store')->name('orders.store');
 
