@@ -45,7 +45,7 @@
                             <a class="nav-link" href="{{ url('/catalog') }}">Catalog</a>
                         </li>
 
-                    {{--
+
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -76,7 +76,7 @@
                                     </form>
                                 </div>
                             </li>
-                        @endguest--}}
+                        @endguest
                     </ul>
                 </div>
             </div>
