@@ -25,7 +25,7 @@ class IndexController extends Controller
                         ->orderBy('orders_sum_quantity', 'desc')
                         ->limit(4)
                         ->get();
-        
+
         return view('index', compact('bestsellers'));
     }
 }

@@ -12,7 +12,7 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="firstname" class="col-md-4 col-form-label text-md-end">{{ __('firstname') }}</label>
+                            <label for="firstname" class="col-md-4 col-form-label text-md-end">{{ __('Firstname') }}</label>
 
                             <div class="col-md-6">
                                 <input id="firstname"
@@ -32,7 +32,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="lastname" class="col-md-4 col-form-label text-md-end">{{ __('lastname') }}</label>
+                            <label for="lastname" class="col-md-4 col-form-label text-md-end">{{ __('Lastname') }}</label>
 
                             <div class="col-md-6">
                                 <input id="lastname"
@@ -71,7 +71,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="phone_number" class="col-md-4 col-form-label text-md-end">{{ __('phone_number') }}</label>
+                            <label for="phone_number" class="col-md-4 col-form-label text-md-end">{{ __('Phone_number') }}</label>
 
                             <div class="col-md-6">
                                 <input id="phone_number"
@@ -91,7 +91,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="address" class="col-md-4 col-form-label text-md-end">{{ __('address') }}</label>
+                            <label for="address" class="col-md-4 col-form-label text-md-end">{{ __('Address') }}</label>
 
                             <div class="col-md-6">
                                 <input id="address"
@@ -111,7 +111,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="city" class="col-md-4 col-form-label text-md-end">{{ __('city') }}</label>
+                            <label for="city" class="col-md-4 col-form-label text-md-end">{{ __('City') }}</label>
 
                             <div class="col-md-6">
                                 <input id="city"
