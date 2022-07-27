@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('phone_number')->unique();
             $table->string('address');
             $table->string('city');
-            $table->string('user_role')->default('user');
+            $table->boolean('is_admin')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
