@@ -21,10 +21,11 @@ class IndexController extends Controller
 
         $bestsellers = Product::select('id', 'name', 'price', 'image')
                         ->withSum('orders', 'quantity')
+                        ->having('orders_sum_quantity', '>', '0')
                         ->orderBy('orders_sum_quantity', 'desc')
                         ->limit(4)
                         ->get();
-
+        
         return view('index', compact('bestsellers'));
     }
 }
