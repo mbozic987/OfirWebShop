@@ -11,7 +11,7 @@
             </div>
             <div class="col-md-8 mx-auto">
                 <a href="/" class="btn btn-warning"><<<< Return home</a>
-                <a href="/catalog/" class="btn btn-primary">Continue shopping >>>></a>
+                <a href="/products/" class="btn btn-primary">Continue shopping >>>></a>
             </div>
         </div>
     </div>

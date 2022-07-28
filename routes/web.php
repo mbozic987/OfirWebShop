@@ -15,11 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/','IndexController@index')->name('index.index');
-Route::get('/home', 'HomeController@index')->name('home.index');
-
-Route::get('/catalog','CatalogController@index')->name('catalog.index');
-
-Route::get('/details/{product?}','DetailsController@show')->name('details.show');
 
 Route::post('/orders','OrdersController@store')->name('orders.store');
 
@@ -27,4 +22,20 @@ Route::get('/notification/success', 'NotificationController@success')->name('not
 Route::get('/notification/error', 'NotificationController@error')->name('notification.error');
 
 Auth::routes();
+
+Route::get('/users','UserController@index')->name('users.index');
+Route::get('/users/create','UserController@create')->name('users.create');
+Route::post('/users','UserController@store')->name('users.store');
+Route::get('/users/{user}','UserController@show')->name('users.show');
+Route::get('/users/{user}/edit','UserController@edit')->name('users.edit');
+Route::patch('/users/{user}','UserController@update')->name('users.update');
+Route::delete('/users{user}','UserController@destroy')->name('users.destroy');
+
+Route::get('/products','ProductController@index')->name('products.index');
+Route::get('/products/create','ProductController@create')->name('products.create');
+Route::post('/products','ProductController@store')->name('products.store');
+Route::get('/details/{product?}','ProductController@show')->name('products.show');
+Route::get('/products/{product}/edit','ProductController@edit')->name('products.edit');
+Route::patch('/products/{product}','ProductController@update')->name('products.update');
+Route::delete('/products{product}','ProductController@destroy')->name('products.destroy');
 

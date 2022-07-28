@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
     public function index()
     {
-//        $query = "select name, price, image, product_id, sum(quantity) as total
+
+//            $query = "select name, price, image, product_id, sum(quantity) as total
 //                   from orders,products
 //                   where orders.product_id=products.id
 //                   group by name, price, image, product_id
@@ -19,13 +18,14 @@ class IndexController extends Controller
 //                   limit 4;";
 //        $bestsellers = DB::select(DB::raw($query));
 
-        $bestsellers = Product::select('id', 'name', 'price', 'image')
-                        ->withSum('orders', 'quantity')
-                        ->having('orders_sum_quantity', '>', '0')
-                        ->orderBy('orders_sum_quantity', 'desc')
-                        ->limit(4)
-                        ->get();
+            $bestsellers = Product::select('id', 'name', 'price', 'image')
+                ->withSum('orders', 'quantity')
+                ->having('orders_sum_quantity', '>', '0')
+                ->orderBy('orders_sum_quantity', 'desc')
+                ->limit(4)
+                ->get();
 
-        return view('index', compact('bestsellers'));
+            return view('index', compact('bestsellers'));
+
     }
 }

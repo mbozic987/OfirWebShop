@@ -42,7 +42,7 @@
                         <!-- Authentication Links -->
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/catalog') }}">Catalog</a>
+                            <a class="nav-link" href="{{ route('products.index') }}">Catalog</a>
                         </li>
 
 
