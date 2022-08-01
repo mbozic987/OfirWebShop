@@ -13,7 +13,10 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     public function isAdmin(){
-        return $this->is_admin === 1;
+        if ($this->is_admin == 1) {
+            return true;
+        }
+        return false;
     }
 
     /**
