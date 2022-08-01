@@ -17,18 +17,6 @@ class UserController extends Controller
     }
 
 
-    public function store(Request $request)
-    {
-        //
-    }
-
-
-    public function show($id)
-    {
-        //
-    }
-
-
     public function edit($id)
     {
         if(!Auth::user()->id == $id | !Auth::user()->isAdmin()){
@@ -45,7 +33,7 @@ class UserController extends Controller
         //dd($request);
         $request->validate([
             'firstname' => 'required|alpha',
-            'lastname' => 'required|string',
+            'lastname' => 'required|alpha',
             'email' => [
                 'required',
                 Rule::unique('users')->ignore($id),
