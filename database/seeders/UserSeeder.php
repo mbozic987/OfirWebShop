@@ -31,7 +31,7 @@ class UserSeeder extends Seeder
             DB::table('users')->insert([
                 'firstname' => 'Name No. ' . $i,
                 'lastname' => 'Surname No. ' . $i,
-                'email' => 'EmailNo.' . $i . '@mail.com',
+                'email' => 'email' . $i . '@mail.com',
                 'phone_number' => '987321654' . $i,
                 'address' => 'Address No. ' . $i . ' ' . rand(1,250),
                 'city' => 'City No. ' . rand(1,10),
