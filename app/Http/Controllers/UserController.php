@@ -30,7 +30,6 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
-        //dd($request);
         $request->validate([
             'firstname' => 'required|alpha',
             'lastname' => 'required|alpha',
