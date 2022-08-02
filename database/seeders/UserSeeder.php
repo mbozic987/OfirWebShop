@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
 
         ]);
 
-        for($i=1;$i<=100;$i++){
+        for($i=2;$i<=11;$i++){
             DB::table('users')->insert([
                 'firstname' => 'Name No. ' . $i,
                 'lastname' => 'Surname No. ' . $i,
