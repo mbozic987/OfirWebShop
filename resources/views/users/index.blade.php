@@ -41,7 +41,7 @@
                                     title="Delete {{ $user->firstname }} {{ $user->lastname }} ?">Delete
                                 </a>
                             @else
-                                <a href="{{ route('users.destroy',[ $user->id]) }}"
+                                <a href="#"
                                    class="btn btn-danger disabled"
                                    title="You can not delete yourself!!!"
                                    >Delete
@@ -50,7 +50,7 @@
                             <a href="{{ route('users.edit',[$user->id]) }}" class="btn btn-primary">Edit</a>
                         </td>
                     </tr>
-                    <form id="users.destroy{{ $user->id }}" action="{{ route('users.destroy', [$user->id]) }}"
+                    <form onsubmit="return confirm('Do you really want to delete this user?')" id="users.destroy{{ $user->id }}" action="{{ route('users.destroy', [$user->id]) }}"
                           method="POST" style="display: none;" >
                         @csrf
                         @method('delete')

@@ -23,67 +23,21 @@
                         </div>
                     </div>
                     <hr>
-                    <form action="/orders" method="post">
-                        @csrf
-
-                        <div class="row">
-                            <div class="row">
-                                <h4>Order product</h4>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label">Product name</label>
-
-                                <input id="name"
-                                       type="text"
-                                       readonly class="form-control plaintext"
-                                       name="name"
-                                       value="{{ $product->name }}">
-                            <div/>
-
-                            <div class="form-group row">
-                                <input id="product_id"
-                                       type="hidden"
-                                       name="product_id"
-                                       value="{{ $product->id }}">
-                            </div>
-
-                            <div class="row">
-                                <label for="quantity" class="col-md-4 col-form-label">Quantity</label>
-
-                                <input id="quantity"
-                                       type="text"
-                                       class="form-control{{ $errors->has('quantity') ? ' is-invalid' : '' }}"
-                                       name="quantity"
-                                       value="1"
-                                       autocomplete="quantity" autofocus>
-
-                                @if ($errors->has('quantity'))
-                                    <strong>{{ $errors->first('quantity') }}</strong>
-                                @endif
-                            </div>
-
-                            <div class="row">
-                                <label for="client" class="col-md-4 col-form-label">Client name</label>
-
-                                <input id="client"
-                                       type="text"
-                                       class="form-control{{ $errors->has('client') ? ' is-invalid' : '' }}"
-                                       name="client"
-                                       value="{{ old('client') }}"
-                                       autocomplete="client" autofocus>
-
-                                @if ($errors->has('quantity'))
-                                    <strong>{{ $errors->first('quantity') }}</strong>
-                                @endif
-                            </div>
-
-                            <div class="row pt-4">
-                                <button class="btn btn-primary">Buy</button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
+                @auth
+                    @if(!Auth::user()->isAdmin())
+                        <a href="{{ route('orders.store',[$product->id, $user->id]) }}" class="btn btn-primary">Buy product</a>
+                    @endif
+
+                    @if (Auth::user()->isAdmin())
+                        <div>
+                            <a href="{{ route('products.destroy',[$product->id]) }}" class="btn btn-danger">Delete</a>
+                            <a href="{{ route('products.edit',[$product->id]) }}" class="btn btn-primary">Edit</a>
+                        </div>
+                    @endif
+                @else
+                    <a href="{{ route('login',[$product->id]) }}" class="btn btn-primary">Please login</a>
+                @endauth
             </div>
         </div>
     </div>
