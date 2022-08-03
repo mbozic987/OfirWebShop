@@ -25,10 +25,10 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        $data = request()->validate([
+        request()->validate([
             'name' => 'required',
             'description' => 'required',
-            'price' => 'required|regex:/^[-+]?[0-9]*(\.[0-9]+)$/',
+            'price' => 'required|regex:/^[0-9]*(\.[0-9]+)$/',
             'image' => 'required|mimes:jpg,jpeg,png',
         ]);
 
@@ -63,27 +63,46 @@ class ProductController extends Controller
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+
+        return view('products.edit', compact('product'));
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
-        //
+        request()->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required|regex:/^[0-9]*(\.[0-9]+)$/',
+            'image' => 'sometimes|mimes:jpg,jpeg,png',
+        ]);
+
+        $product = Product::find($id);
+        $product->name = $request->input('name');
+        $product->description = $request->input('description');
+        $product->price = $request->input('price');
+
+        if(request()->has('image')){
+            unlink(public_path("images/".$product->image));
+
+            $imageName = $request->name . '.' . $request->image->extension();
+
+            $request->image->move(public_path('images'), $imageName);
+
+            $image = Image::make(public_path("images/{$imageName}"))->fit(1000,1776);
+            $image->save();
+
+            $product->image = $imageName;
+        }
+
+        $product->update();
+
+        return redirect('/products')->with('message', 'Product updated successfully!!!');
     }
 
 
