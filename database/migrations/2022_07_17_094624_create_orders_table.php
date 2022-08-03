@@ -17,11 +17,11 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('product_id');
             $table->integer('quantity');
-            $table->string('client');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('products');
-
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
         });
     }
 

@@ -12,6 +12,11 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public function order()
+    {
+        return $this->hasMany(Order::class);
+    }
+
     public function isAdmin(){
         if ($this->is_admin == 1) {
             return true;
